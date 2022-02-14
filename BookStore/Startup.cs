@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,24 +34,39 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            //app.Use(async (contex, next) =>
+            //{
+            //    await contex.Response.WriteAsync("my first middleware");
+            //    await next();
+            //});
+
+            //app.Use(async (contex, next) =>
+            //{
+            //    await contex.Response.WriteAsync("My Second Middleware");
+            //    await next();
+            //});
+
+            //app.Use(async (contex, next) =>
+            //{
+            //    await contex.Response.WriteAsync("My Third Middleware");
+            //});
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/", async context => 
+                {
+                    await context.Response.WriteAsync("hello Form HOME");
+                });
+            });
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapGet("/Product", async context =>
+                {
+                    await context.Response.WriteAsync("hello Form Product");
+                });
             });
         }
     }
