@@ -34,22 +34,22 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
-            //app.Use(async (contex, next) =>
-            //{
-            //    await contex.Response.WriteAsync("my first middleware");
-            //    await next();
-            //});
+            /*app.Use(async (contex, next) =>
+            {
+                await contex.Response.WriteAsync("my first middleware");
+                await next();
+            });
+            
+            app.Use(async (contex, next) =>
+            {
+                await contex.Response.WriteAsync("My Second Middleware");
+                await next();
+            });
 
-            //app.Use(async (contex, next) =>
-            //{
-            //    await contex.Response.WriteAsync("My Second Middleware");
-            //    await next();
-            //});
-
-            //app.Use(async (contex, next) =>
-            //{
-            //    await contex.Response.WriteAsync("My Third Middleware");
-            //});
+            app.Use(async (contex, next) =>
+            {
+                await contex.Response.WriteAsync("My Third Middleware");
+            }); 
 
             app.UseRouting();
 
@@ -57,7 +57,7 @@ namespace BookStore
             {
                 endpoints.MapGet("/", async context => 
                 {
-                    await context.Response.WriteAsync("hello Form HOME");
+                    await context.Response.WriteAsync(env.EnvironmentName);
                 });
             });
 
@@ -67,6 +67,12 @@ namespace BookStore
                 {
                     await context.Response.WriteAsync("hello Form Product");
                 });
+            }); */
+
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
