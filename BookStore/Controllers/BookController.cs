@@ -12,5 +12,13 @@ namespace BookStore.Controllers
         {
             return "All Book";
         }
+        public string GetBook(int id)
+        {
+            return $"Book with ID ={id}";
+        }
+        public string SearchBooks(string bookName, string author)
+        {
+            return $"Book Name is {bookName} and Author Name is {author}";
+        }
     }
 }
