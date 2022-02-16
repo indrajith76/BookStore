@@ -13,16 +13,54 @@
 <body>
     <h1>Hello First view from Index file</h1>
     <h1>@DateTime.Now.ToString("'Date ='yyyy'-'MM'-'dd'Time ='H':'mm':'ss")</h1>
-    <h1>Sum = @(12+5)</h1>
+    <h1>Sum = @(12 + 5)</h1>
     <br />
     <h1>
-    @{
-        int a = 10;
-        int b = 20;
-        int sub = a - b;
-    }
-    
+        @{
+            int a = 10;
+            int b = 20;
+            int sub = a - b;
+        }
+
     </h1>
     <h1>@sub</h1>
+    <br />
+
+    <!--Conditional Statement in Razor :) -->
+    @{
+        a = 20;
+        b = 20;
+    }
+
+    @if (a < b)
+    {
+        <h1 style="color:seagreen">@b is Bigger then @a</h1>
+    }
+    else if (a == b)
+    {
+        <h1 style="color:yellow">@a is equal to @b</h1>
+    }
+    else
+    {
+        <h1> @a is Not Equal to @b</h1>
+    }
+
+    <!--Ternary Oparator-->
+    @(a == b ? "A = B" : a < b ? "A<B" : "nothing Matched")
+    <!--Switch Satement-->
+    @{ 
+        int x = 30;
+     }
+    @switch (x)
+    {
+        case 1:<h1>Case is 1</h1>
+            break;
+        case 2: <h1>Case is 2</h1>
+            break;
+        case 3: <h1>Case is 3</h1>
+            break;
+        default:<h1>Case is Default</h1>
+            break;
+    }
 </body>
 </html>
