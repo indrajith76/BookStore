@@ -12,5 +12,17 @@
 </head>
 <body>
     <h1>Hello First view from Index file</h1>
+    <h1>@DateTime.Now.ToString("'Date ='yyyy'-'MM'-'dd'Time ='H':'mm':'ss")</h1>
+    <h1>Sum = @(12+5)</h1>
+    <br />
+    <h1>
+    @{
+        int a = 10;
+        int b = 20;
+        int sub = a - b;
+    }
+    
+    </h1>
+    <h1>@sub</h1>
 </body>
 </html>

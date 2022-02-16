@@ -13,7 +13,8 @@ namespace BookStore.Controllers
     {
         public ViewResult Index()
         {
-            return View("../../TempView/indraTemp");
+            return View();
+            //return View("../../TempView/indraTemp");
         }
 
         public ViewResult AboutUs()
