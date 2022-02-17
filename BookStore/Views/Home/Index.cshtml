@@ -48,9 +48,9 @@
     <!--Ternary Oparator-->
     @(a == b ? "A = B" : a < b ? "A<B" : "nothing Matched")
     <!--Switch Satement-->
-    @{ 
+    @{
         int x = 30;
-     }
+    }
     @switch (x)
     {
         case 1:<h1>Case is 1</h1>
@@ -61,6 +61,23 @@
             break;
         default:<h1>Case is Default</h1>
             break;
+    }
+
+    <!--For Loop-->
+    @*@for (int i = 0; i < 5; i++)
+        {
+            <h2 style="color:seagreen">For Loop @i</h2>
+        } *@
+
+    <!--For each Loop-->
+    @{ 
+        //Create a list of data
+        var Data = new List<string> { "komol", "samol", "khokon", "Rokon", "Ram", "Sam" };
+    }
+
+    @foreach (var item in Data)
+    {
+        <h3>@item</h3>
     }
 </body>
 </html>
