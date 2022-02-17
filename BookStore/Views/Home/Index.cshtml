@@ -10,9 +10,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link href="~/css/Site.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
+<body class="container">
+
     <img src="~/images/navlogo.png" class="logo" alt="logo  " />
+    <button class="btn btn-success">Click Here</button>
 
     <img src="../MyStaticFiles/man.png" alt="manPic" />
 
@@ -87,4 +90,12 @@
 
 
 </body>
+<script src="~/lib/jquery/jquery.js"></script>
 </html>
+<script>
+
+    $(Document).ready(function ()
+    {
+        alert("Page Loaded Message by JQuery");
+    });
+</script>
