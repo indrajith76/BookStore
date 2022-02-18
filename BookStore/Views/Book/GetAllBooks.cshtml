@@ -1,17 +1,32 @@
-﻿
+﻿@model IEnumerable<BookStore.Models.BookModel>
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetAllBooks</title>
-</head>
-<body>
-    <h1>All Book List</h1>
-    <button>Click me</button>
-</body>
-</html>
+<div class="container">
+    <h3 class="display-3">All Books</h3>
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm" style="width: 16rem;">
+                    <img src="~/images/man.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        <p class="card-text">@book.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-success">View Details</a>
+                            </div>
+                            <small class="text-muted">@book.Author</small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+        
+    </div>
+</div>
