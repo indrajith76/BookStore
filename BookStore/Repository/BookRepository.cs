@@ -24,12 +24,12 @@ namespace BookStore.Repository
         {
             return new List<BookModel>()
             {
-                new BookModel(){Id =1, Title ="MVC", Author ="Rosik", Description="This is the Description for MVC book"},
-                new BookModel(){Id =2, Title ="CSharp", Author ="Kobir",Description="This is the Description for CSharp book"},
-                new BookModel(){Id =3, Title ="Java", Author ="Kawsik",Description="This is the Description for Java book"},
-                new BookModel(){Id =4, Title ="Php", Author ="Sobita",Description="This is the Description for Php book"},
-                new BookModel(){Id =5, Title ="Html", Author ="Rokeya",Description="This is the Description for Html book"},
-                new BookModel(){Id =6, Title ="Python", Author ="Jhon",Description="This is the Description for Python book"},
+                new BookModel(){Id =1, Title ="MVC", Author ="Rosik", Description="This is the Description for MVC book", Category="Framework", Language="English", TotalPages=154},
+                new BookModel(){Id =2, Title ="CSharp", Author ="Kobir",Description="This is the Description for CSharp book",Category="Programming", Language="Bangla", TotalPages=164},
+                new BookModel(){Id =3, Title ="Java", Author ="Kawsik",Description="This is the Description for Java book",Category="Concept", Language="German", TotalPages=164},
+                new BookModel(){Id =4, Title ="Php", Author ="Sobita",Description="This is the Description for Php book",Category="DataFlow", Language="Hindi", TotalPages=134},
+                new BookModel(){Id =5, Title ="Html", Author ="Rokeya",Description="This is the Description for Html book",Category="WebDesign", Language="Chinese", TotalPages=124},
+                new BookModel(){Id =6, Title ="Python", Author ="Jhon",Description="This is the Description for Python book",Category="MachineLearning", Language="English", TotalPages=184},
             };
         }
     }
