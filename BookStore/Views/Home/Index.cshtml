@@ -1,11 +1,14 @@
 ﻿@{
-    dynamic data = ViewBag.Data;
+    ViewData["Title"] = "Home";
+    //var bookInfo = ViewData["book"] as BookModel;
 }
-
-<h1>Welcome to BookStore <span style="color:coral">@ViewBag.Tittle</span></h1> <br />
-<h2 style="color:purple">@data.Id @data.Name</h2> <br />
-<h3>Id = <span style="color:Highlight">@ViewBag.Type.Id</span></h3><br />
-<h3>Name = <span  style="color:Highlight">@ViewBag.Type.Author</span></h3>
+<h1>Welcome to BookStore <span style="color:coral">@ViewData["proparty1"]</span></h1>
+<br />
+@*<h2 style="color:purple">Name</h2>
+<br />
+<h3>Id = <span style="color:Highlight">@bookInfo.Id</span></h3>
+<br />
+<h3>Name = <span style="color:Highlight">@bookInfo.Author</span></h3>*@
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -17,8 +20,8 @@
         <div class="carousel-item active">
             <img src="~/images/center-1.jpg" class="d-block w-100" alt="...">
             @*<div class="carousel-caption d-none d-md-block">
-                
-            </div>*@
+
+                </div>*@
         </div>
         <div class="carousel-item">
             <img src="~/images/center-2.jpg" class="d-block w-100" alt="...">
@@ -38,7 +41,7 @@
 </div>
 <div class="py-5 bg-light">
     <div class="container">
-        
+
         <h1>Latest Products</h1>
         <hr />
         <div class="row">
@@ -105,7 +108,7 @@
         </div>
     </div>
 </div>
-@section script{ 
+@section script{
     <script>
         $(document).ready(function () {
             alert("Home is Ready");

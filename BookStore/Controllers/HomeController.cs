@@ -14,14 +14,9 @@ namespace BookStore.Controllers
     {
         public ViewResult Index()
         {
-            ViewBag.Tittle = "Indrajith";
-            dynamic data = new ExpandoObject();
-            data.Id = 1;
-            data.Name = "Indrajith";
-            
-            ViewBag.Data = data;
+            ViewData["proparty1"] = "Indrajith Goswami";
 
-            ViewBag.Type = new BookModel() { Id = 5, Author = "This is Author" };
+            ViewData["book"] = new BookModel { Author = "Indra", Id = 101 };
 
             return View();
             //return View("../../TempView/indraTemp");
