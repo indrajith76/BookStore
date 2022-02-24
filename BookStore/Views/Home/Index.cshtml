@@ -1,14 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    //ViewData["Title"] = "Home";
     //var bookInfo = ViewData["book"] as BookModel;
+    var bookInfo = ViewData["Book"] as BookModel;
 }
-<h1>Welcome to BookStore <span style="color:coral">@ViewData["proparty1"]</span></h1>
+<h1>Welcome to BookStore <span style="color:coral">@ViewData["CustomProparty"]</span></h1>
 <br />
-@*<h2 style="color:purple">Name</h2>
+<h2 style="color:purple">Name</h2>
 <br />
 <h3>Id = <span style="color:Highlight">@bookInfo.Id</span></h3>
 <br />
-<h3>Name = <span style="color:Highlight">@bookInfo.Author</span></h3>*@
+<h3>Name = <span style="color:Highlight">@bookInfo.Title</span></h3>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">

@@ -12,24 +12,35 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
+        [ViewData]
+        public string CustomProparty { get; set; }
+        [ViewData]
+        public string Title { get; set; }
+        [ViewData]
+        public BookModel Book { get; set; }
+
         public ViewResult Index()
         {
-            ViewData["proparty1"] = "Indrajith Goswami";
+            CustomProparty = "Indrajith Goswami";
 
-            ViewData["book"] = new BookModel { Author = "Indra", Id = 101 };
+            Title = "Home";
+
+            Book = new BookModel() { Id = 1, Title = "ASP DOT NET"};
 
             return View();
-            //return View("../../TempView/indraTemp");
         }
 
         public ViewResult AboutUs()
         {
+            Title = "AboutUs";
             return View();
         }
 
         public ViewResult ContactUs()
         {
+            Title = "ContactUs";
             return View();
         }
+
     }
 }
