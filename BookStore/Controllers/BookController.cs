@@ -21,6 +21,8 @@ namespace BookStore.Controllers
 
             return View(data);
         }
+
+        [Route("book-details/{id}", Name ="bookDetailsRoute")] /* <- compatibile with routing*/
         public ViewResult GetBook(int id)
         {
             var date = _bookRepository.GetBookById(id);

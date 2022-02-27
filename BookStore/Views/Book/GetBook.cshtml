@@ -1,11 +1,14 @@
 ﻿@{ 
     ViewData["Title"] = "Book detail " + Model.Title;
 }
-@model BookModel;
+@model BookModel
 
 
 <div class="container">
-    <h1 class="display-5">Book Details</h1>
+    <div class="row" id="up">
+        <div class="col col-sm-6"><h1 class="display-5">Book Details</h1></div>
+        <div class="col col-sm-6"><a asp-controller="book" asp-action="getbook" asp-fragment="down"><i class="fa-solid fa-circle-chevron-down"></i></a></div>
+    </div>
     <div class="row">
         <div class="col-6 col-sm-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -48,7 +51,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12"> 
+                <div class="col-md-12">
                     <p class="description">
                         @Model.Description
                     </p>
@@ -96,7 +99,10 @@
                     </div>
                 }
             </div>
+            <div class="row" id="down">
+                <div class="col col-sm-6"> </div>
+                <div class="col col-sm--6"><a asp-controller="book" asp-action="getbook" asp-fragment="up"><i class="fa-solid fa-circle-up"></i></a></div>
+            </div>
         </div>
-
     </div>
 </div>
