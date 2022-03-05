@@ -23,9 +23,9 @@ namespace BookStore.Controllers
         }
 
         [Route("book-details/{id}", Name ="bookDetailsRoute")] /* <- compatibile with routing*/
-        public ViewResult GetBook(int id)
+        public async Task<ViewResult> GetBook(int id)
         {
-            var date = _bookRepository.GetBookById(id);
+            var date = await _bookRepository.GetBookById(id);
 
             return View(date);
         }
