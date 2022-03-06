@@ -51,8 +51,8 @@ namespace BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id});
                 }
             }
-            //ViewBag.IsSuccess = false;
-            //ViewBag.BookId = 0;
+
+            ModelState.AddModelError("", "আপনাকে সব শূন্যস্থান পূরণ করতে হবে!");
 
             return View();
         }
