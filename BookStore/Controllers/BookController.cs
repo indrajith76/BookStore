@@ -1,6 +1,7 @@
 ﻿using BookStore.Models;
 using BookStore.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,8 @@ namespace BookStore.Controllers
         }
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0) /* <- AddNewBook is an Action Method. */
         {
+            ViewBag.Language = new SelectList(new List<string>() { "English", "Bangla", "Hindi" });
+
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
             return View();
@@ -51,6 +54,8 @@ namespace BookStore.Controllers
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id});
                 }
             }
+
+            ViewBag.Language = new SelectList(new List<string>() { "English", "Bangla", "Hindi" });
 
             ModelState.AddModelError("", "আপনাকে সব শূন্যস্থান পূরণ করতে হবে!");
 
