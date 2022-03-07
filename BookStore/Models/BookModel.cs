@@ -8,10 +8,6 @@ namespace BookStore.Models
 {
     public class BookModel
     {
-        [DataType(DataType.EmailAddress)]
-        [Display(Name ="Choose email")]
-        [EmailAddress]
-        public string MyField { get; set; }
         public int Id { get; set; }
         [StringLength(100, MinimumLength = 5)]
         [Required(ErrorMessage ="Please enter the title of your book ")]
@@ -21,6 +17,7 @@ namespace BookStore.Models
         [StringLength(500, MinimumLength = 30)]
         public string Description { get; set; }
         public string Category { get; set; }
+        [Required(ErrorMessage ="Please select the language")]
         public string Language { get; set; }
         [Required(ErrorMessage ="Please enter the total pages")]
         [Display(Name ="Total pages of book")]
