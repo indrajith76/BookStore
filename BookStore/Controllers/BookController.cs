@@ -36,7 +36,7 @@ namespace BookStore.Controllers
         }
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0) /* <- AddNewBook is an Action Method. */
         {
-            ViewBag.Language = new SelectList(new List<string>() { "English", "Bangla", "Hindi" });
+            ViewBag.Language = new SelectList(GetLanguages(),"Id","Text");
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -55,11 +55,20 @@ namespace BookStore.Controllers
                 }
             }
 
-            ViewBag.Language = new SelectList(new List<string>() { "English", "Bangla", "Hindi" });
+            ViewBag.Language = new SelectList(GetLanguages(), "Id", "Text");
 
             ModelState.AddModelError("", "আপনাকে সব শূন্যস্থান পূরণ করতে হবে!");
 
             return View();
+        }
+        private List<LanguageModel> GetLanguages()
+        {
+            return new List<LanguageModel>()
+            {
+                new LanguageModel(){ Id = 1, Text = "Bangla"},
+                new LanguageModel(){ Id = 2, Text = "English"},
+                new LanguageModel(){ Id = 3, Text = "Hindi"},
+            };
         }
     }
 }
