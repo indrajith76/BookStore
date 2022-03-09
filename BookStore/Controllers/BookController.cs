@@ -36,7 +36,19 @@ namespace BookStore.Controllers
         }
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0) /* <- AddNewBook is an Action Method. */
         {
-            ViewBag.Language = new SelectList(GetLanguages(),"Id","Text");
+            //ViewBag.Language = GetLanguages().Select(x => new SelectListItem() 
+            //{ 
+            //    Text = x.Text,
+            //    Value = x.Id.ToString()
+            //}).ToList();
+
+            ViewBag.Language = new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = "Hindi", Value =  "1"},
+                new SelectListItem(){Text = "English", Value = "2", Disabled = true},
+                new SelectListItem(){Text = "Dutch", Value = "3", Selected = true},
+                new SelectListItem(){Text = "Tamil", Value = "4"},
+            };
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -49,7 +61,7 @@ namespace BookStore.Controllers
             if (ModelState.IsValid)
             {
                 int id = await _bookRepository.AddNewBook(bookModel);
-                if (id > 0)
+                if (id > 0) 
                 {
                     return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id});
                 }
