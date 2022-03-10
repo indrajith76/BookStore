@@ -36,18 +36,18 @@ namespace BookStore.Controllers
         }
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0) /* <- AddNewBook is an Action Method. */
         {
-            //ViewBag.Language = GetLanguages().Select(x => new SelectListItem() 
-            //{ 
-            //    Text = x.Text,
-            //    Value = x.Id.ToString()
-            //}).ToList();
+            var group1 = new SelectListGroup() { Name = "Group 1"};
+            var group2 = new SelectListGroup() { Name = "Group 2"};
+            var group3 = new SelectListGroup() { Name = "Group 3" };
 
             ViewBag.Language = new List<SelectListItem>()
             {
-                new SelectListItem(){Text = "Hindi", Value =  "1"},
-                new SelectListItem(){Text = "English", Value = "2", Disabled = true},
-                new SelectListItem(){Text = "Dutch", Value = "3", Selected = true},
-                new SelectListItem(){Text = "Tamil", Value = "4"},
+                new SelectListItem(){Text = "Hindi", Value =  "1", Group = group1},
+                new SelectListItem(){Text = "English", Value = "2", Group = group1},
+                new SelectListItem(){Text = "Dutch", Value = "3", Group = group2},
+                new SelectListItem(){Text = "Tamil", Value = "4", Group = group2},
+                new SelectListItem(){Text = "Urdu", Value = "5", Group = group3},
+                new SelectListItem(){Text = "Chinese", Value = "6", Group = group3},
             };
 
             ViewBag.IsSuccess = isSuccess;
