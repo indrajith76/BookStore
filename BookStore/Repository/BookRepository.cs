@@ -25,7 +25,7 @@ namespace BookStore.Repository
                 CreatedOn = DateTime.UtcNow,
                 Description = model.Description,
                 Title = model.Title,
-                Language = model.Language,
+                LanguageId = model.LanguageId,
                 TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow
             };
@@ -51,7 +51,8 @@ namespace BookStore.Repository
                         Category = book.Category,
                         Description = book.Description,
                         Id = book.Id,
-                        Language = book.Language,
+                        LanguageId = book.LanguageId,
+                        Language = book.Language.Name,
                         Title = book.Title,
                         TotalPages = book.TotalPages
                     });
@@ -61,38 +62,22 @@ namespace BookStore.Repository
         }
         public async Task<BookModel> GetBookById(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            if (book != null)
-            {
-                var bookDetails = new BookModel()
+            return await _context.Books.Where(x => x.Id == id)
+                .Select(book => new BookModel()
                 {
                     Author = book.Author,
                     Category = book.Category,
                     Description = book.Description,
                     Id = book.Id,
-                    Language = book.Language,
+                    LanguageId = book.LanguageId,
+                    Language = book.Language.Name,
                     Title = book.Title,
                     TotalPages = book.TotalPages
-                };
-                return bookDetails;
-            }
-            return null;
+                }).FirstOrDefaultAsync();
         }
         public List<BookModel> SearchBook(string tittle, string authorname)
         {
-            return DataSource().Where(x => x.Title.Contains(tittle) || x.Author.Contains(authorname)).ToList();
-        }
-        private List<BookModel> DataSource()
-        {
-            return new List<BookModel>()
-            {
-                new BookModel(){Id =1, Title ="MVC", Author ="Rosik", Description="This is the Description for MVC book", Category="Framework", Language="English", TotalPages=154},
-                new BookModel(){Id =2, Title ="CSharp", Author ="Kobir",Description="This is the Description for CSharp book",Category="Programming", Language="Bangla", TotalPages=164},
-                new BookModel(){Id =3, Title ="Java", Author ="Kawsik",Description="This is the Description for Java book",Category="Concept", Language="German", TotalPages=164},
-                new BookModel(){Id =4, Title ="Php", Author ="Sobita",Description="This is the Description for Php book",Category="DataFlow", Language="Hindi", TotalPages=134},
-                new BookModel(){Id =5, Title ="Html", Author ="Rokeya",Description="This is the Description for Html book",Category="WebDesign", Language="Chinese", TotalPages=124},
-                new BookModel(){Id =6, Title ="Python", Author ="Jhon",Description="This is the Description for Python book",Category="MachineLearning", Language="English", TotalPages=184},
-            };
+            return null;
         }
     }
 }
